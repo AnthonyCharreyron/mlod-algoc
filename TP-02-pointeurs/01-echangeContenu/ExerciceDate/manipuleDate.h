@@ -16,6 +16,8 @@ void initialiseDate(Date *d);
 
 void afficheDate(Date *d);
 
+char* libelleDate(Mois m);
+
 Date creerDateParCopie(void);
 
 Date* newDate(void);

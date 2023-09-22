@@ -9,11 +9,19 @@ void initialiseDate(Date *d){ //verifier que la date est valide avec do et if
     scanf("%hu",&d->annee);
 }
 
-void afficheDate(Date *pd){
+void afficheDate(Date* pd){
     printf("La date est : %hu %d %hu",pd->jour,pd->mois,pd->annee);
 }
 
-Date creerDateParCopie(void){
+char* libelleDate(Mois m){
+    char* nomDesMois[]={"Janvier","Fevrier","Mars",
+                        "Avril","Mai","Juin","Juillet",
+                        "Aout","Septembre","Octobre",
+                        "Novembre","Decembre"};
+    return nomDesMois[m-1];
+}
+
+Date creerDateParCopie(void){ 
     Date d;
     printf("jour : ");
     scanf("%hu",&d.jour);
@@ -22,7 +30,7 @@ Date creerDateParCopie(void){
     printf("annee : ");
     scanf("%hu",&d.annee);
     return d;
-}
+}//Autre maniere : utiliser initialiseDate(&d) a la place des printf et scanf
 
 Date* newDate(void){
     Date* date = (Date *) malloc(sizeof(Date));
