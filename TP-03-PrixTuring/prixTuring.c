@@ -10,6 +10,7 @@
 
 **/
 
+#include "prixTuring.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,10 +21,22 @@
 // MAIN
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-int main(int argc, char** argv)
+int main(void) //int argc-> nb d'argument, char** argv ; pour la question 7
 {
 	char filename[] = "turingWinners.csv";
-	char outputFilename[] = "out.csv";
+	//char outputFilename[] = "out.csv";
+
+	FILE* f= fopen(filename,"r");
+	//FILE* o= fopen(outputFilename,"w");
+	
+	printf("Nb lignes %d",numberOfWinners(f));
+	Turingwinner* t=NULL;
+	readWinner(t, f);
+	printf("%u %s %s",&t->annee,&t->nom,&t->travaux);
+	
+	fclose(f);
+	//fclose(o);
+	
 
     // TODO
 
