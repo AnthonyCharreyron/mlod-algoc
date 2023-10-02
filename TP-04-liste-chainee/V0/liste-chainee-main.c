@@ -6,11 +6,11 @@
 #include <stdio.h>
 
 int main(void){
-	Liste l, p;
+	Liste l,p;
 
 	l = NULL;
 	printf("estVide(l) = %s\n",estVide(l)?"TRUE":"FALSE");
-
+	
 	l = ajoutTete(1,l);
 	l = ajoutTete(2,l);
 	l = ajoutTete(4,l);
@@ -20,12 +20,13 @@ int main(void){
 	l = ajoutTete(2,l);
 	l = ajoutTete(4,l);
 	l = ajoutTete(1,l);
-
+	
 	afficheListe_i(l);
-
-	ajoutFin_r(99,l);
+	printf("\n");
+	
+	ajoutFin_i(99,l);
 	afficheListe_i(l);
-
+	
 	ajoutFin_r(100,l);
 	afficheListe_i(l);
 
@@ -64,7 +65,7 @@ int main(void){
 	printf("retirePremier_i(100) : ");
 	l = retirePremier_i(100,l);
 	afficheListe_r(l);
-
+/*
 	printf("retirePremier_r(4)   : ");
 	l = retirePremier_r(4,l);
 	afficheListe_r(l);
@@ -77,7 +78,9 @@ int main(void){
 	l = retirePremier_r(99,l);
 	afficheListe_r(l);
 
-	detruire_r(l);
+	
+	*/
+	detruire_i(l);
 
 	return EXIT_SUCCESS;
 }
