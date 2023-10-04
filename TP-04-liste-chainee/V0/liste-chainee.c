@@ -141,35 +141,36 @@ Liste retirePremier_i(Element v, Liste l) {
 		courant=courant->suiv;
 		suivant=courant->suiv;
 	}
-	courant->suiv=suivant->suiv;
-	detruireElement(suivant->val);
-	free(suivant);
+	if(!estVide(courant)){
+		courant->suiv=suivant->suiv;
+		detruireElement(suivant->val);
+		free(suivant);
+	}
 	return l;
 }
 
 
 // version recursive
 Liste retirePremier_r(Element v, Liste l) {
-	// Liste courant=l;
-	// Liste suivant=courant->suiv;
-	// if(equalsElement(v,l->val)){
-	// 	detruireElement(courant->val);
-	// 	free(courant);
-	// 	return suivant;
-	// }
-	// if(!estVide(suivant) && !equalsElement(v,suivant->val)){
-	// 	suivant=retirePremier_r(v,courant)
-	// 	 
-	// }
-	// 
-	// detruireElement(suivant->val);
-	// free(suivant);
-	// return l;
+	if (estVide(l)){
+		return l;
+	}
+	if (equalsElement(v, l->val)) {
+        Liste temp = l->suiv;
+        detruireElement(l->val);
+        free(l);
+        return temp;
+    }
+	l->suiv = retirePremier_r(v, l->suiv);
+    return l;
 }
 
 
 void afficheEnvers_r(Liste l) {
-	TODO;
+	if(!estVide(l)){
+		afficheEnvers_r(l->suiv);
+		afficheElement(l->val);
+	}
 }
 
 
